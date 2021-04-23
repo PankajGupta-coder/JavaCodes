@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class BillingSoftware {
     public static void main(String[] args) {
-        int x;
+        int x, weight, ans = 0;
         Scanner take = new Scanner(System.in);
         System.out.println("Chose the Item From the list  ");
         System.out.println("1 Apple  2 Orange  3 Grapes ");
@@ -12,9 +12,22 @@ public class BillingSoftware {
         x = take.nextInt();
         switch (x) {
         case 1: {
-            System.out.println("Enter the weight kg/gm ; ");
-            int weight = take.nextInt();
-            int ans = weight * 80;
+            System.out.println("Select unit  ");
+            System.out.println(" 1 Kilograms  \n 2 Grams");
+            int sel = take.nextInt();
+
+            switch (sel) {
+            case 1:
+                System.out.println("Enter Weight in Kilograms");
+                weight = take.nextInt();
+                ans = weight * 80;
+                break;
+            case 2:
+                weight = take.nextInt();
+                ans = (80 / 1000) * weight;
+                break;
+            }
+
             System.out.println(" Rs  " + ans);
 
         }
