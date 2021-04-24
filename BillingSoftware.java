@@ -1,8 +1,12 @@
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+
 public class BillingSoftware {
     public static void main(String[] args) {
-        int x, weight, ans = 0;
+        
+        int x, weight;
+        float ans = 0;
         Scanner take = new Scanner(System.in);
         System.out.println("Chose the Item From the list  ");
         System.out.println("1 Apple  2 Orange  3 Grapes ");
@@ -23,12 +27,15 @@ public class BillingSoftware {
                 ans = weight * 80;
                 break;
             case 2:
+                System.out.println("Enter Weight in grams");
+
                 weight = take.nextInt();
-                ans = (80 / 1000) * weight;
+                ans = (80 / 1000);
+                // ans = ans * weight;
                 break;
             }
 
-            System.out.println(" Rs  " + ans);
+            System.out.println(ans);
 
         }
         case 2:
@@ -45,4 +52,5 @@ public class BillingSoftware {
 
         }
     }
+
 }
