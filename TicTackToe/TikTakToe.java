@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
 
 class TicTacToe implements ActionListener {
     Random random = new Random();
@@ -14,6 +13,7 @@ class TicTacToe implements ActionListener {
     JLabel textField = new JLabel();
     JButton[] btn = new JButton[9];
     boolean player1;
+    JButton replay = new JButton();
 
     TicTacToe() {
 
@@ -43,8 +43,9 @@ class TicTacToe implements ActionListener {
             btn[i].setFocusable(false);
             btn[i].addActionListener(this);
         }
-
+        replay.setBounds(700 , 0 , 50 , 100);
         title_panel.add(textField);
+       // title_panel.add(replay);
         fr.add(title_panel, BorderLayout.NORTH);
         fr.add(button_panel);
         firstTurn();
@@ -81,7 +82,6 @@ class TicTacToe implements ActionListener {
             Thread.sleep(2000);
 
         } catch (InterruptedException e) {
-            // TODO: handle exception
         }
 
         if (random.nextInt(2) == 0) {
@@ -120,28 +120,28 @@ class TicTacToe implements ActionListener {
         }
         // For checking the Y wins or not
 
-        if ((btn[0].getText() == "  Y") && (btn[1].getText() == "Y") && (btn[2].getText() == "Y")) {
+        if ((btn[0].getText() == "  O") && (btn[1].getText() == "O") && (btn[2].getText() == "O")) {
             oWin(0, 1, 2);
         }
-        if ((btn[3].getText() == "Y") && (btn[4].getText() == "Y") && (btn[5].getText() == "Y")) {
+        if ((btn[3].getText() == "O") && (btn[4].getText() == "O") && (btn[5].getText() == "O")) {
             oWin(3, 4, 5);
         }
-        if ((btn[6].getText() == "Y") && (btn[7].getText() == "Y") && (btn[8].getText() == "Y")) {
+        if ((btn[6].getText() == "O") && (btn[7].getText() == "O") && (btn[8].getText() == "O")) {
             oWin(6, 7, 8);
         }
-        if ((btn[0].getText() == "Y") && (btn[4].getText() == "Y") && (btn[8].getText() == "Y")) {
+        if ((btn[0].getText() == "O") && (btn[4].getText() == "O") && (btn[8].getText() == "O")) {
             oWin(0, 4, 8);
         }
-        if ((btn[0].getText() == "Y") && (btn[3].getText() == "Y") && (btn[6].getText() == "Y")) {
+        if ((btn[0].getText() == "O") && (btn[3].getText() == "O") && (btn[6].getText() == "O")) {
             oWin(0, 3, 6);
         }
-        if ((btn[1].getText() == "Y") && (btn[4].getText() == "Y") && (btn[7].getText() == "Y")) {
+        if ((btn[1].getText() == "O") && (btn[4].getText() == "O") && (btn[7].getText() == "O")) {
             oWin(1, 4, 7);
         }
-        if ((btn[2].getText() == "Y") && (btn[5].getText() == "Y") && (btn[8].getText() == "Y")) {
+        if ((btn[2].getText() == "O") && (btn[5].getText() == "O") && (btn[8].getText() == "O")) {
             oWin(2, 5, 8);
         }
-        if ((btn[2].getText() == "Y") && (btn[4].getText() == "Y") && (btn[6].getText() == "Y")) {
+        if ((btn[2].getText() == "O") && (btn[4].getText() == "O") && (btn[6].getText() == "O")) {
             oWin(2, 4, 6);
         }
     }
@@ -165,7 +165,7 @@ class TicTacToe implements ActionListener {
         for (int i = 0; i < 9; i++) {
             btn[i].setEnabled(false);
         }
-        textField.setText("OWins");
+        textField.setText("O Wins");
     }
 
 }
