@@ -62,8 +62,7 @@ class TicTacToe implements ActionListener {
                         textField.setText("O Turn");
                         check();
                     }
-                }
-                else {
+                } else {
                     if (btn[i].getText() == "") {
                         btn[i].setForeground(Color.blue);
                         btn[i].setText("O");
@@ -95,15 +94,78 @@ class TicTacToe implements ActionListener {
     }
 
     public void check() {
+        if ((btn[0].getText() == "X") && (btn[1].getText() == "X") && (btn[2].getText() == "X")) {
+            xWin(0, 1, 2);
+        }
+        if ((btn[3].getText() == "X") && (btn[4].getText() == "X") && (btn[5].getText() == "X")) {
+            xWin(3, 4, 5);
+        }
+        if ((btn[6].getText() == "X") && (btn[7].getText() == "X") && (btn[8].getText() == "X")) {
+            xWin(6, 7, 8);
+        }
+        if ((btn[0].getText() == "X") && (btn[4].getText() == "X") && (btn[8].getText() == "X")) {
+            xWin(0, 4, 8);
+        }
+        if ((btn[0].getText() == "X") && (btn[3].getText() == "X") && (btn[6].getText() == "X")) {
+            xWin(0, 1, 2);
+        }
+        if ((btn[1].getText() == "X") && (btn[4].getText() == "X") && (btn[7].getText() == "X")) {
+            xWin(1, 4, 7);
+        }
+        if ((btn[2].getText() == "X") && (btn[5].getText() == "X") && (btn[8].getText() == "X")) {
+            xWin(2, 5, 8);
+        }
+        if ((btn[2].getText() == "X") && (btn[4].getText() == "X") && (btn[6].getText() == "X")) {
+            xWin(2, 4, 6);
+        }
+        // For checking the Y wins or not
 
+        if ((btn[0].getText() == "  Y") && (btn[1].getText() == "Y") && (btn[2].getText() == "Y")) {
+            oWin(0, 1, 2);
+        }
+        if ((btn[3].getText() == "Y") && (btn[4].getText() == "Y") && (btn[5].getText() == "Y")) {
+            oWin(3, 4, 5);
+        }
+        if ((btn[6].getText() == "Y") && (btn[7].getText() == "Y") && (btn[8].getText() == "Y")) {
+            oWin(6, 7, 8);
+        }
+        if ((btn[0].getText() == "Y") && (btn[4].getText() == "Y") && (btn[8].getText() == "Y")) {
+            oWin(0, 4, 8);
+        }
+        if ((btn[0].getText() == "Y") && (btn[3].getText() == "Y") && (btn[6].getText() == "Y")) {
+            oWin(0, 3, 6);
+        }
+        if ((btn[1].getText() == "Y") && (btn[4].getText() == "Y") && (btn[7].getText() == "Y")) {
+            oWin(1, 4, 7);
+        }
+        if ((btn[2].getText() == "Y") && (btn[5].getText() == "Y") && (btn[8].getText() == "Y")) {
+            oWin(2, 5, 8);
+        }
+        if ((btn[2].getText() == "Y") && (btn[4].getText() == "Y") && (btn[6].getText() == "Y")) {
+            oWin(2, 4, 6);
+        }
     }
 
     public void xWin(int a, int b, int c) {
+        btn[a].setBackground(Color.green);
+        btn[b].setBackground(Color.green);
+        btn[c].setBackground(Color.green);
 
+        for (int i = 0; i < 9; i++) {
+            btn[i].setEnabled(false);
+        }
+        textField.setText("X Wins");
     }
 
     public void oWin(int a, int b, int c) {
+        btn[a].setBackground(Color.green);
+        btn[b].setBackground(Color.green);
+        btn[c].setBackground(Color.green);
 
+        for (int i = 0; i < 9; i++) {
+            btn[i].setEnabled(false);
+        }
+        textField.setText("OWins");
     }
 
 }
